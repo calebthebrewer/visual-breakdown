@@ -1,0 +1,11 @@
+<div class="container module">
+	<div class="row">
+			<a ui-sref="breakdown({id: id})">
+				{{module.name}}
+				<span class="badge">{{module.exports.length}}</span>
+			</a>
+		<button ng-if="module.parent" role="button" class="btn btn-link" ng-click="remove()">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	</div>
+</div>

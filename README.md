@@ -1,2 +1,9 @@
-# git-history
-A git history viewer.
+# Visual Breakdown
+Another stab at a breakdown.
+
+## Install
+- npm install
+
+## What you need
+- mongo
+

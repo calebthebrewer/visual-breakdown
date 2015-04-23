@@ -15,11 +15,16 @@ angular.module('module')
 					return 'module/' + (attributes.display || 'module') + '.tpl.html';
 				},
 				link: function($scope) {
-					if (!$scope.node) {
-						module.get($scope.id)
-							.then(function(currentModule) {
-								$scope.module = currentModule;
-							});
+					if (!$scope.module) {
+						if ($scope.id) {
+							module.get($scope.id)
+								.then(function(currentModule) {
+									$scope.module = currentModule;
+								});
+						} else {
+							$scope.module = {};
+						}
+
 					}
 				}
 			};

@@ -13,7 +13,8 @@
     "ui-router-extras": "07cb588ae8dbaea934ad93ba4f1752d52fa9db40",
     "ng-sortable": "1.1.9",
     "lodash": "2.4.1",
-    "ace": "~1.1.8"
+    "ace": "~1.1.8",
+    "ng-tags-input": "~2.3.0"
   },
   "license": "MIT",
   "private": true,

@@ -52,6 +52,9 @@ var vendorCss = [
 		bower + '/angular-bootstrap/ui-bootstrap-tpls.min.js',
 		bower + '/ng-sortable/dist/ng-sortable.min.js',
 		bower + '/lodash/dist/lodash.min.js',
+		bower + '/ng-tags-input/ng-tags-input.min.js',
+		bower + '/ace-builds/src-min-noconflict/ace.js',
+		bower + '/angular-ui-ace/ui-ace.js',
 		dev + '/vendor/**/*.js'
 	],
 	vendorFonts = [

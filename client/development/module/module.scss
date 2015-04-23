@@ -1,0 +1,23 @@
+.module {
+	.tag-list{
+		list-style: none outside none;
+
+		.tag-item {
+			display: inline-block;
+			float: left;
+		}
+
+		ti-tag-item {
+			padding: 0 6px;
+			cursor: pointer;
+
+			&:hover {
+				color: #222;
+			}
+		}
+	}
+
+	.ace_editor {
+		height: 200px;
+	}
+}

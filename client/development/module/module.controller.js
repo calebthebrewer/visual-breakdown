@@ -6,7 +6,11 @@ angular.module('module')
 
 			$scope.save = function save() {
 				module.update($scope.module._id, $scope.module);
-				render();
+				$scope.output = render();
+			};
+
+			$scope.new = function(name) {
+				name;
 			};
 
 			$scope.save();
@@ -29,7 +33,7 @@ angular.module('module')
 					}
 				});
 				output += '\n};\n}'
-				$scope.output = output;
-			};
+				return output;
+			}
 		}
 	]);

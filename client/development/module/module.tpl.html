@@ -24,7 +24,8 @@
 					ng-model="module.parameters"
 					min-length="0"
 					on-tag-added="save()"
-					on-tag-removed="save()">
+					on-tag-removed="save()"
+					on-tag-clicked="new($tag)">
 				<!--<auto-complete source="loadTags($query)"></auto-complete>-->
 			</tags-input>
 		</div>

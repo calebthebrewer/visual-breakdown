@@ -15,6 +15,7 @@ function createNode(req, res) {
 	var node = req.body;
 
 	node.exports = [];
+	node.parameters = [];
 
 	nodes.save(node, function(error, node) {
 		if (!error) {

@@ -52,9 +52,9 @@ var vendorCss = [
 		bower + '/angular-bootstrap/ui-bootstrap-tpls.min.js',
 		bower + '/ng-sortable/dist/ng-sortable.min.js',
 		bower + '/lodash/dist/lodash.min.js',
-		bower + '/ng-tags-input/ng-tags-input.min.js',
+		bower + '/ng-tags-input/build/ng-tags-input.min.js',
 		bower + '/ace-builds/src-min-noconflict/ace.js',
-		bower + '/angular-ui-ace/ui-ace.js',
+		bower + '/angular-ui-ace/ui-ace.min.js',
 		dev + '/vendor/**/*.js'
 	],
 	vendorFonts = [
@@ -63,7 +63,8 @@ var vendorCss = [
 	vendorMaps = [
 		bower + '/bootstrap/dist/css/bootstrap.css.map',
 		bower + '/angular/angular.min.js.map',
-		bower + '/angular-animate/angular-animate.min.js.map'
+		bower + '/angular-animate/angular-animate.min.js.map',
+		bower + '/ng-tags-input/build/ng-tags-input.boostrap.min.css'
 	];
 
 /*

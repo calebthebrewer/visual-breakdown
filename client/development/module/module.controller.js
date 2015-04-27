@@ -16,23 +16,61 @@ angular.module('module')
 			$scope.save();
 
 			function render() {
-				var output = 'function ' + $scope.module.name + '(';
-				$scope.module.parameters.forEach(function(parameter, index, array) {
-					output += parameter.text;
-					if (index < array.length - 1) {
-						output += ', ';
-					}
-				});
-				output += ') {\n';
+				var output = 'function ' + $scope.module.name;
+				output += renderParameters($scope.module.parameters, $scope.module.parametersType);
 				output += $scope.module.body + '\n';
-				output += 'return {\n';
-				$scope.module.exports.forEach(function(exported, index, array) {
-					output += '\t' + exported.text + ': ' + exported.text;
-					if (index < array.length - 1) {
-						output += ',\n';
+				output += renderReturn($scope.module.exports);
+				output += '}';
+				return output;
+			}
+
+			function renderParameters(parameters, type) {
+				var output = '(';
+
+				switch (type) {
+					case 'options':
+						if (parameters.length < 1) {
+							output += ') {\n';
+							break;
+						}
+						output += 'options) {\n';
+						parameters.forEach(function (parameter) {
+							output += 'var ' + parameter.text + ' = options.' + parameter.text + ';\n';
+						});
+						break;
+					default:
+						parameters.forEach(function(parameter, index, array) {
+							output += parameter.text;
+							if (index < array.length - 1) {
+								output += ', ';
+							}
+						});
+						output += ') {\n';
+						break;
+				}
+
+				return output;
+			}
+
+			function renderReturn(exports) {
+				var output = '';
+
+				if (exports.length > 0) {
+					output += 'return ';
+					if (exports.length === 1) {
+						output += exports[0].text + ';\n';
+					} else {
+						output += '{\n';
+						exports.forEach(function(exported, index, array) {
+							output += '\t' + exported.text + ': ' + exported.text;
+							if (index < array.length - 1) {
+								output += ',\n';
+							}
+						});
+						output += '\n};\n';
 					}
-				});
-				output += '\n};\n}'
+				}
+
 				return output;
 			}
 		}

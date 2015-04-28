@@ -1,0 +1,12 @@
+<div class="container">
+	<ul class="list-group">
+		<a class="list-group-item" ui-sref="new()">
+			new module
+		</a>
+		<a ng-repeat="module in modules" class="list-group-item" ui-sref="breakdown({id: module._id})">
+			{{module.name}}
+			<span class="badge" ng-if="module.exports">{{module.exports.length}} exports</span>
+			<span class="badge" ng-if="module.parameters">{{module.parameters.length}} parameters</span>
+		</a>
+	</ul>
+</div>

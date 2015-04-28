@@ -7,6 +7,7 @@ var nodes = db.collection('nodes');
 module.exports = function(app) {
 		app.post('/api/nodes', createNode);
 		app.get('/api/nodes/:id', getNode);
+		app.get('/api/nodes', getAllNodes);
 		app.put('/api/nodes/:id', updateNode);
 		app.delete('/api/nodes/:id', deleteNode);
 };
@@ -38,6 +39,18 @@ function getNode(req, res) {
 				.send(error);
 		}
 	});
+}
+
+function getAllNodes(req, res) {
+	nodes.find(req.query, function(error, nodes) {
+		if (!error) {
+			res.send(nodes);
+		} else {
+			res
+				.status(500)
+				.send(error);
+		}
+	})
 }
 
 function updateNode(req, res) {

@@ -27,26 +27,26 @@ angular.module('module')
 			function renderParameters(parameters, type) {
 				var output = '(';
 
-				switch (type) {
-					case 'options':
-						if (parameters.length < 1) {
+				if (parameters.length < 1) {
+					output += ') {\n';
+				} else {
+					switch (type) {
+						case 'options':
+							output += 'options) {\n';
+							parameters.forEach(function (parameter) {
+								output += 'var ' + parameter.text + ' = options.' + parameter.text + ';\n';
+							});
+							break;
+						default:
+							parameters.forEach(function(parameter, index, array) {
+								output += parameter.text;
+								if (index < array.length - 1) {
+									output += ', ';
+								}
+							});
 							output += ') {\n';
 							break;
-						}
-						output += 'options) {\n';
-						parameters.forEach(function (parameter) {
-							output += 'var ' + parameter.text + ' = options.' + parameter.text + ';\n';
-						});
-						break;
-					default:
-						parameters.forEach(function(parameter, index, array) {
-							output += parameter.text;
-							if (index < array.length - 1) {
-								output += ', ';
-							}
-						});
-						output += ') {\n';
-						break;
+					}
 				}
 
 				return output;

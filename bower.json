@@ -15,7 +15,8 @@
     "lodash": "2.4.1",
     "ace": "~1.1.8",
     "ng-tags-input": "git@github.com:lunks/ngTagsInput",
-    "angular-ui-ace": "bower"
+    "angular-ui-ace": "bower",
+    "ng-context-menu": "~1.0.1"
   },
   "license": "MIT",
   "private": true,

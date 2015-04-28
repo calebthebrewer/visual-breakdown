@@ -18,10 +18,25 @@ angular.module('module')
 			};
 
 			this.get = function(id) {
+				if (!id) return getAll();
+
 				var defer = $q.defer();
 
 				$http
 					.get('api/nodes/' + id)
+					.success(function(module) {
+						defer.resolve(module);
+					})
+					.error(defer.reject);
+
+				return defer.promise;
+			};
+
+			this.getAll = function(filters) {
+				var defer = $q.defer();
+
+				$http
+					.get('api/nodes/', {params: filters})
 					.success(function(module) {
 						defer.resolve(module);
 					})

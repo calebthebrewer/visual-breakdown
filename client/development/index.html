@@ -9,6 +9,32 @@
 </head>
 <body ng-app="app">
 <div class="main-view" ui-view></div>
+<nav class="navbar navbar-default navbar-fixed-bottom"">
+	<div class="container-fluid">
+		<div class="navbar-header col-sm-2 col-xs-4">
+			<a class="navbar-brand" ui-sref="home">VB</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li>
+					<a ui-sref="new()" ui-sref-active="bg-info" class="nav-link" title="New Module">
+						<span class="glyphicon glyphicon-plus"></span>
+					</a>
+				</li>
+				<li>
+					<a ui-sref="collection({type: 'module'})" ui-sref-active="bg-info" class="nav-link" title="Module Collection">
+						<span class="glyphicon glyphicon-list"></span>
+					</a>
+				</li>
+				<li>
+					<a ui-sref="collection({type: 'renderer'})" ui-sref-active="bg-info" class="nav-link" title="Renderer Collection">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
 <script src="vendor/vendor.js"></script>
 <script src="templates.js"></script>
 <script src="app.js"></script>

@@ -2,6 +2,7 @@
  Modules
  */
 var gulp = require('gulp'),
+	mainBower = require('main-bower-files'),
 	gulpIf = require('gulp-if'),
 	jshint = require('gulp-jshint'),
 	csslint = require('gulp-csslint'),
@@ -41,23 +42,7 @@ var htmlFiles = [
 	images = dev + '/images/**/*.*',
 	copyFiles = [dev + '/favicon.ico'];
 
-var vendorCss = [
-		bower + '/bootstrap/dist/css/bootstrap.min.css',
-		dev + '/vendor/**/*.css'
-	],
-	vendorJs = [
-		bower + '/angular/angular.min.js',
-		bower + '/ui-router/release/angular-ui-router.min.js',
-		bower + '/angular-animate/angular-animate.min.js',
-		bower + '/angular-bootstrap/ui-bootstrap-tpls.min.js',
-		bower + '/ng-sortable/dist/ng-sortable.min.js',
-		bower + '/lodash/dist/lodash.min.js',
-		bower + '/ng-tags-input/build/ng-tags-input.min.js',
-		bower + '/ace-builds/src-min-noconflict/ace.js',
-		bower + '/angular-ui-ace/ui-ace.min.js',
-		dev + '/vendor/**/*.js'
-	],
-	vendorFonts = [
+var vendorFonts = [
 		bower + '/bootstrap/dist/fonts/*'
 	],
 	vendorMaps = [
@@ -141,11 +126,11 @@ gulp.task('images', function() {
 
 gulp.task('vendor', function() {
 	eventStream.merge(
-		gulp.src(vendorJs)
+		gulp.src(mainBower('**/*.js').concat(bower + '/ace-builds/src-min-noconflict/ace.js'))
 			.pipe(concat('vendor.js'))
 			.pipe(uglify())
 			.pipe(gulp.dest(prod + '/vendor')),
-		gulp.src(vendorCss)
+		gulp.src(mainBower('**/*.css'))
 			.pipe(concat('vendor.css'))
 			.pipe(minifyCss())
 			.pipe(gulp.dest(prod + '/vendor')),
